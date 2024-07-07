@@ -10,20 +10,23 @@ let name;
 
 const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function start() {
+async function title() {
   const title = "Rock-Paper-Scissor-CLI \n";
-  // await sleep();
-  // title.stop();
   figlet(title, (err, data) => {
     console.log(gradient.pastel.multiline(data));
   });
-  await sleep();
+  await sleep(1000);
+}
 
+async function start() {
   console.log(`
     Enter ${chalk.red("R/r for Rock")} | ${chalk.blue(
     "P/p for Paper"
-  )} | ${chalk.green("S/s for Scissor")}
-    The Computer will ${chalk.yellow("randomly select any option")}`);
+  )} | ${chalk.green("S/s for Scissor")}`);
+  await sleep(1000);
+  console.log(
+    `The Computer will ${chalk.yellow("randomly select any option")}`
+  );
 }
 
 async function handleAnswer(choice) {
@@ -107,8 +110,16 @@ async function repeat() {
     });
     if (cont.pick !== "Y" && cont.pick !== "y") {
       i = 0;
+    } else {
+      console.log(
+        gradient(
+          "cyan",
+          "red",
+          "green"
+        )("-------------------------------------------------------")
+      );
     }
   }
 }
-
+await title();
 await repeat();
