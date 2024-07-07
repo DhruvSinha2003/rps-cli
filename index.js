@@ -20,10 +20,10 @@ async function start() {
   await sleep();
 
   console.log(`
-    Enter ${chalk.bgRed("R/r for Rock")} | ${chalk.bgRed(
+    Enter ${chalk.red("R/r for Rock")} | ${chalk.blue(
     "P/p for Paper"
-  )} | ${chalk.bgRed("S/s for Scissor")}
-    The Computer will ${chalk.bgBlue("randomly select any option")}`);
+  )} | ${chalk.green("S/s for Scissor")}
+    The Computer will ${chalk.yellow("randomly select any option")}`);
 }
 
 async function handleAnswer(choice) {
@@ -49,34 +49,34 @@ async function handleAnswer(choice) {
       compChoice = "S";
       fullChoice = "Scissor";
     }
-    console.log("Computer choose " + fullChoice);
+    console.log("Computer choose " + chalk.cyanBright(fullChoice));
 
     if (check === "R" && compChoice === "R") {
-      console.log("Draw");
+      console.log(chalk.blue("Draw"));
     }
     if (check === "R" && compChoice === "P") {
-      console.log("You lose");
+      console.log(chalk.red("You Lose"));
     }
     if (check === "R" && compChoice === "S") {
-      console.log("You win");
+      console.log(chalk.green("You Win"));
     }
     if (check === "P" && compChoice === "R") {
-      console.log("You win");
+      console.log(chalk.green("You Win"));
     }
     if (check === "P" && compChoice === "P") {
-      console.log("Draw");
+      console.log(chalk.blue("Draw"));
     }
     if (check === "P" && compChoice === "S") {
-      console.log("You lose");
+      console.log(chalk.red("You Lose"));
     }
     if (check === "S" && compChoice === "R") {
-      console.log("You lose");
+      console.log(chalk.red("You Lose"));
     }
     if (check === "S" && compChoice === "P") {
-      console.log("You win");
+      console.log(chalk.green("You Win"));
     }
     if (check === "S" && compChoice === "S") {
-      console.log("Draw");
+      console.log(chalk.blue("Draw"));
     }
   }
 }
