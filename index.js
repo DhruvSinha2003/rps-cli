@@ -11,9 +11,13 @@ let name;
 const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function start() {
-  const title = chalkAnimation.neon("Rock-Paper-Scissor-CLI \n");
+  const title = "Rock-Paper-Scissor-CLI \n";
+  // await sleep();
+  // title.stop();
+  figlet(title, (err, data) => {
+    console.log(gradient.pastel.multiline(data));
+  });
   await sleep();
-  title.stop();
 
   console.log(`
     Enter ${chalk.bgRed("R/r for Rock")} | ${chalk.bgRed(
@@ -32,6 +36,7 @@ async function handleAnswer(choice) {
   } else {
     let random = Math.floor(Math.random() * 3 + 1);
     let compChoice;
+    let fullChoice;
     if (random === 1) {
       compChoice = "R";
       fullChoice = "Rock";
@@ -44,7 +49,7 @@ async function handleAnswer(choice) {
       compChoice = "S";
       fullChoice = "Scissor";
     }
-    console.log("Computer choose " + compChoice);
+    console.log("Computer choose " + fullChoice);
 
     if (check === "R" && compChoice === "R") {
       console.log("Draw");
