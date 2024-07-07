@@ -93,5 +93,22 @@ async function takeAnswer() {
   return handleAnswer(answer.pick);
 }
 
-await start();
-await takeAnswer();
+async function repeat() {
+  for (let i = 1; i === 1; ) {
+    await start();
+    await takeAnswer();
+    const cont = await inquirer.prompt({
+      name: "pick",
+      type: "input",
+      message: "Play Again? (Y/N)",
+      default() {
+        return "N";
+      },
+    });
+    if (cont.pick !== "Y" && cont.pick !== "y") {
+      i = 0;
+    }
+  }
+}
+
+await repeat();
