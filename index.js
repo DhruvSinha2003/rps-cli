@@ -34,14 +34,45 @@ async function handleAnswer(choice) {
     let compChoice;
     if (random === 1) {
       compChoice = "R";
+      fullChoice = "Rock";
     }
     if (random === 2) {
       compChoice = "P";
+      fullChoice = "Paper";
     }
     if (random === 3) {
       compChoice = "S";
+      fullChoice = "Scissor";
     }
     console.log("Computer choose " + compChoice);
+
+    if (check === "R" && compChoice === "R") {
+      console.log("Draw");
+    }
+    if (check === "R" && compChoice === "P") {
+      console.log("You lose");
+    }
+    if (check === "R" && compChoice === "S") {
+      console.log("You win");
+    }
+    if (check === "P" && compChoice === "R") {
+      console.log("You win");
+    }
+    if (check === "P" && compChoice === "P") {
+      console.log("Draw");
+    }
+    if (check === "P" && compChoice === "S") {
+      console.log("You lose");
+    }
+    if (check === "S" && compChoice === "R") {
+      console.log("You lose");
+    }
+    if (check === "S" && compChoice === "P") {
+      console.log("You win");
+    }
+    if (check === "S" && compChoice === "S") {
+      console.log("Draw");
+    }
   }
 }
 
